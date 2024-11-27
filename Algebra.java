@@ -18,7 +18,7 @@ public class Algebra {
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
-   		System.out.println(sqrt(36));
+   		// System.out.println(sqrt(36));
 		// System.out.println(sqrt(263169));
    		// System.out.println(sqrt(76123));
 	}  
@@ -80,7 +80,7 @@ public class Algebra {
 	}	
 
 	// Returns the integer part of sqrt(x) 
-	public static int sqrt(int x) {
+	//public static int sqrt(int x) {
 		// double epsilon = 0.01;
 		// int g = x / 2;
 		// //cant use abs?
@@ -88,5 +88,6 @@ public class Algebra {
 		// 	g = g - (g * g - x) / (2 * g);
 		// }		
 		// return g;
-	}	  	  
+	//}	
+  	  
 }
