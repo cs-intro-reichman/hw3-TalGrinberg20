@@ -6,7 +6,7 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-		System.out.println(times(-2, -3));
+		System.out.println(div(-15, -3));
 		// System.out.println(plus(-3,-3));   
 		// System.out.println(plus(2,3));   // 2 + 3
 	    // System.out.println(minus(7,2));  // 7 - 2
@@ -75,8 +75,15 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		int result = 1;
+		if (x<0) {
+		for (int i = 0; i < n; i++) {
+			result = times(x, result);
+		}			
+		} else {
+		
 		for (int i = 0; i < n; i++) {
 			result = times(result, x);
+		}
 		}
 		return result;
 	}
@@ -84,12 +91,23 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		int result = x1;
-		int i = 0;
-		while (result >= x2) {
-			result = minus(result, x2);
-			 i++;
+		if (x1 <0 ^ x2<0) {
+			int i = 0;
+			while ( i < myABS(x2) ) {
+				result = minus(x1,result);
+				i++;
 		}
-		return i;
+		return -i;
+
+		} 
+		else {
+			int j = 0;
+			while ( j < myABS(x2)) {
+				result = minus(myABS(result),myABS(x1));
+				j++;
+			}
+		return j;
+		}
 	}
 
 	// Returns x1 % x2
@@ -123,16 +141,7 @@ public class Algebra {
         g = (L + H) / 2; 
     }
     return H;
-	// int epsilon = 1, L = 1, H = x;
-	// int g = (L + H) / 2;
-	// while (Math.abs(g * g - x) >= epsilon) {
-	// 	if (g * g < x)
-	// L = g;
-	// else
-	// 	H = g;
-	// g = (L + H) / 2;
-	// }
-	// 	return g;
+	
 	}	
   	  
 }
