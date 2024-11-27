@@ -13,7 +13,7 @@ public class Anagram {
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 
-		System.out.println(Anagram.preProcess("Hello World!").equals("hello world"));
+		//System.out.println(Anagram.preProcess("Hello World!").equals("hello world"));
 
 		
 		// Performs a stress test of randomAnagram 
@@ -52,6 +52,10 @@ public class Anagram {
 			}
 		else if (str.charAt(i)>=97 && str.charAt(i)<=122){
 			processedString = processedString + (char) (str.charAt(i));
+		}
+		
+		else if (str.charAt(i) == 32) {	
+		processedString = processedString + (char) (str.charAt(i));
 		}
 		}
 		return processedString;
