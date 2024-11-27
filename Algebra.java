@@ -18,9 +18,9 @@ public class Algebra {
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
-   		// System.out.println(sqrt(36));
-		// System.out.println(sqrt(263169));
-   		// System.out.println(sqrt(76123));
+   		System.out.println(sqrt(36));
+		System.out.println(sqrt(263169));
+   		System.out.println(sqrt(76123));
 	}  
 
 	// Returns x1 + x2
@@ -79,15 +79,36 @@ public class Algebra {
 		return result;
 	}	
 
+	public static int myABS (int x){
+		return ((x>0)? x : -x);
+	}
+
+
 	// Returns the integer part of sqrt(x) 
-	//public static int sqrt(int x) {
-		// double epsilon = 0.01;
-		// int g = x / 2;
-		// //cant use abs?
-		// while (Math.abs(g * g - x) > epsilon) {
-		// 	g = g - (g * g - x) / (2 * g);
-		// }		
-		// return g;
-	//}	
+	public static int sqrt(int x) {
+	 int L = 1, H = x; 
+    int g = (L + H) / 2; 
+    while (L <= H) { 
+        if (g * g == x) {
+            return g; 
+        } else if (g * g < x) {
+            L = g + 1; 
+        } else {
+            H = g - 1; 
+        }
+        g = (L + H) / 2; 
+    }
+    return H;
+	// int epsilon = 1, L = 1, H = x;
+	// int g = (L + H) / 2;
+	// while (Math.abs(g * g - x) >= epsilon) {
+	// 	if (g * g < x)
+	// L = g;
+	// else
+	// 	H = g;
+	// g = (L + H) / 2;
+	// }
+	// 	return g;
+	}	
   	  
 }
