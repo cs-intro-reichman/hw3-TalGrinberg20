@@ -12,6 +12,9 @@ public class Anagram {
 		
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
+
+		System.out.println(Anagram.preProcess("Hello World!").equals("hello world"));
+
 		
 		// Performs a stress test of randomAnagram 
 		String str = "1234567";
