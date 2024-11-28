@@ -12,9 +12,7 @@ public class LoanCalc {
 		double loan = Double.parseDouble(args[0]);
 		double rate = Double.parseDouble(args[1]);
 		int n = Integer.parseInt(args[2]);
-		//double payment = Double.parseDouble(args[3]);
 		System.out.println("Loan = " + loan + ", interest rate = " + rate + "%, periods = " + n);
-		//System.out.println(endBalance(loan, rate, n, payment));
 
 		// Computes the periodical payment using brute force search
 		System.out.print("\nPeriodical payment, using brute force: ");
@@ -47,12 +45,12 @@ public class LoanCalc {
 		double g = loan/n;
 		iterationCounter = 0;
 		//understand why adding epsilon
-		while (g > 0) { 
-			g = endBalance(loan, rate, n, g+epsilon);
+		while ( endBalance(loan, rate, n, g)> 0) { 
+			g=g+epsilon;
 			iterationCounter ++;
 		}
 
-		return 0;
+		return g;
     }
     
     // Uses bisection search to compute an approximation of the periodical payment 
@@ -66,15 +64,15 @@ public class LoanCalc {
 	// 	/////////////////////////////////////////
 	// 	double L = loan/n, H = 0;
 	// 	double g = loan/n;
-	// 	int stepCounter = 0;
+	// 	iterationCounter = 0;
 	// 	while (Math.abs(g * g ) >= epsilon) {
 	// 	if (g * g < 0)
 	// 	L = g;
 	// 	else
 	// 	H = g;
 	// 	g = (L + H) / 2;
-	// 	stepCounter++;
+	// 	iterationCounter++;
 	// 	}		
-	// 	return 0;
+	// 	return ;
     // }
 }
